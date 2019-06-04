@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "505123269758",
+    "firebase_url": "https://blueshedd-internship.firebaseio.com",
+    "project_id": "blueshedd-internship",
+    "storage_bucket": "blueshedd-internship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505123269758:android:d426495b16b6e927",
+        "android_client_info": {
+          "package_name": "com.learn.ankitkumar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505123269758-23cd7gdpdtgkogt340ls40kfqo33blde.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learn.ankitkumar",
+            "certificate_hash": "7bca9ac369a11f1c78a0d56382e10c37def85575"
+          }
+        },
+        {
+          "client_id": "505123269758-t9f34av7rbp9v4akkfa1eqlp125kaf45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApafDz2qSI5hrLoFuj7ykcFnnJzRHaVK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505123269758-t9f34av7rbp9v4akkfa1eqlp125kaf45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

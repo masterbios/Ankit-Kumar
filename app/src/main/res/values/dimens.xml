@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="small_margin">10dp</dimen>
+    <dimen name="msgtext">20dp</dimen>
+    <dimen name="small_gap">4dp</dimen>
+    <dimen name="chat_margins">24dp</dimen>
+</resources>

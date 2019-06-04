@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/fab_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="0dp">
+
+    <RelativeLayout
+        android:padding="@dimen/fab_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--right side message skeleton-->
+
+
+        <TextView
+            android:id="@+id/message_outgoing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/chatbubble_right"
+            android:lineSpacingExtra="2dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="4dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text=""
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="@dimen/chat_margins"
+            android:textSize="@dimen/msgtext"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_percent="0.8" />
+
+
+        <TextView
+            android:id="@+id/message_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:lineSpacingExtra="2dp"
+            android:paddingLeft="20dp"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="2 days later"
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginLeft="@dimen/chat_margins"
+            android:textSize="@dimen/msgtext"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_percent="0.8" />
+
+
+
+        <!--left side chat skeleton-->
+
+        <TextView
+            android:id="@+id/message_incoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chatbubble_left"
+            android:lineSpacingExtra="2dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="4dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            android:layout_marginRight="@dimen/chat_margins"
+            android:text=""
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/montserratregular"
+            android:textSize="@dimen/msgtext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_percent="0.8" />
+
+
+    </RelativeLayout>
+
+
+
+</android.support.v7.widget.CardView>
