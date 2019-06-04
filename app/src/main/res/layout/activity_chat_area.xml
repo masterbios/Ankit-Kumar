@@ -5,43 +5,97 @@
     android:layout_height="match_parent"
     tools:context=".ChatArea">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
+        android:id="@+id/upbar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@color/colorPrimary">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="65dp"
+            android:background="@color/colorPrimary">
 
-            <ImageView
-                android:id="@+id/backbutton"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:src="@drawable/ic_arrow_back_black_24dp"
-                android:layout_marginTop="@dimen/small_margin"/>
-
-            <TextView
-                android:id="@+id/title"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="The story of a mad person of"
-                android:fontFamily="@font/montserratalternatesmedium"
-                android:textColor="@android:color/black"
-                android:textSize="24dp"
-                android:padding="@dimen/fab_margin"/>
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/backbutton"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:src="@drawable/ic_arrow_back_black_24dp" />
 
-    </android.support.v7.widget.Toolbar>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserratalternatesmedium"
+                    android:padding="@dimen/fab_margin"
+                    android:text="The story of a mad person of"
+                    android:textColor="@android:color/black"
+                    android:textSize="24dp" />
+
+            </LinearLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/namebar"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginBottom="4dp"
+            android:background="@color/colorPrimary"
+
+            android:theme="@style/ThemeOverlay.AppCompat">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/roundbuttons"
+                    android:fontFamily="@font/montserratalternatesmedium"
+                    android:padding="@dimen/fab_margin"
+                    android:text="John"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24dp" />
+
+
+                <TextView
+                    android:id="@+id/right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/roundbuttons"
+                    android:fontFamily="@font/montserratalternatesmedium"
+                    android:padding="@dimen/fab_margin"
+                    android:text="Mark"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24dp" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/internet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
         android:background="@color/grey"
         android:visibility="gone">
 
@@ -68,9 +122,11 @@
 
     </RelativeLayout>
 
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/upbar"
         android:id="@+id/recycler"
-        android:layout_below="@id/toolbar"
+        android:background="@drawable/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"

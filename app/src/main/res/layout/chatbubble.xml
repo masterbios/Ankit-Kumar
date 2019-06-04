@@ -54,7 +54,7 @@
             android:paddingBottom="10dp"
             android:text="2 days later"
             android:fontFamily="@font/montserratregular"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:layout_marginLeft="@dimen/chat_margins"
             android:textSize="@dimen/msgtext"
             app:layout_constraintStart_toEndOf="parent"

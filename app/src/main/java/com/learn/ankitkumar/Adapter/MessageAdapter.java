@@ -50,17 +50,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-        System.out.println("adapter " + i);
+//        System.out.println("adapter " + i);
 
         MessageModel model = list.get(i);
-        viewHolder.left.setText(Integer.toString(i) + " " + model.getText());
+        viewHolder.left.setText(model.getText());
         if(model.getSender().equals("left")){
-            viewHolder.left.setText(Integer.toString(i) + " " + model.getText());
+            viewHolder.left.setText(model.getText());
             viewHolder.right.setVisibility(View.GONE);
             viewHolder.middle.setVisibility(View.GONE);
             viewHolder.img.setVisibility(View.GONE);
         } else if(model.getSender().equals("right")){
-            viewHolder.right.setText(Integer.toString(i) + " " + model.getText());
+            viewHolder.right.setText(model.getText());
             viewHolder.middle.setVisibility(View.GONE);
             viewHolder.left.setVisibility(View.GONE);
             viewHolder.img.setVisibility(View.GONE);
@@ -75,7 +75,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
                 Toast.makeText(context, "null", Toast.LENGTH_SHORT).show();
             }
         } else {
-            viewHolder.middle.setText(Integer.toString(i) + " " + model.getText());
+            viewHolder.middle.setText(model.getText());
             viewHolder.left.setVisibility(View.GONE);
             viewHolder.right.setVisibility(View.GONE);
             viewHolder.img.setVisibility(View.GONE);

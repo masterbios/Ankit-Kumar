@@ -1,5 +1,6 @@
 package com.learn.ankitkumar;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -14,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,12 +35,20 @@ public class ChatArea extends AppCompatActivity {
 
     List<MessageModel> list;
     List<MessageModel> custom;
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+
     TextView title;
     RelativeLayout root;
+
     Button retry;
     int counter;
+
+    ProgressDialog mDialog;
+
+    boolean flag = false;
+
     MessageAdapter adapter;
 
     @Override
@@ -47,7 +57,7 @@ public class ChatArea extends AppCompatActivity {
         setContentView(R.layout.activity_chat_area);
 
         counter = 1;
-
+        mDialog = new ProgressDialog(this);
         list = new ArrayList<MessageModel>();
         custom = new ArrayList<MessageModel>();
 
@@ -69,6 +79,7 @@ public class ChatArea extends AppCompatActivity {
         retry.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                flag = true;
                 checkInternetConnection();
             }
         });
@@ -116,61 +127,13 @@ public class ChatArea extends AppCompatActivity {
             }
         });
 
-//        recyclerView.setOnTouchListener(new View.OnTouchListener() {
-//            private static final int MAX_CLICK_DURATION = 400;
-//            private long startClickTime;
-//
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                switch (event.getAction()) {
-//                    case MotionEvent.ACTION_DOWN: {
-//                        startClickTime = Calendar.getInstance().getTimeInMillis();
-//                        break;
-//                    }
-//                    case MotionEvent.ACTION_UP: {
-//                        long clickDuration = Calendar.getInstance().getTimeInMillis() - startClickTime;
-//                        if(clickDuration < MAX_CLICK_DURATION) {
-//                            //click event has occurred
-////                            Toast.makeText(ChatArea.this, "empty", Toast.LENGTH_SHORT).show();
-//                            if (counter <= custom.size()) {
-//                                list.add(custom.get(counter));
-//                                adapter.notifyItemRangeInserted(counter, counter + 1);
-//                                adapter.notifyDataSetChanged();
-//                                counter++;
-//                            }
-//                            return true;
-//                        }
-//                    }
-//                }
-//                return false;
-//            }
-//        });
-
-
-//        recyclerView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//
-//                if(event.getAction() == MotionEvent.ACTION_UP){
-//                    Toast.makeText(ChatArea.this, "empty", Toast.LENGTH_SHORT).show();
-//                    if(counter <= custom.size()){
-//                        list.add(custom.get(counter));
-//                        adapter.notifyItemRangeInserted(counter, counter + 1);
-//                        adapter.notifyDataSetChanged();
-//                        counter++;
-//                    }
-//                    return true;
-//                }
-//
-//                return false;
-//            }
-//        });
     }
 
 
     public void checkInternetConnection() {
 
         if (isNetworkAvailable()) {
+            flag = false;
             loadMessages();
             recyclerView.setVisibility(View.VISIBLE);
             root.setVisibility(View.GONE);
@@ -178,10 +141,15 @@ public class ChatArea extends AppCompatActivity {
             recyclerView.setVisibility(View.GONE);
             root.setVisibility(View.VISIBLE);
         }
+        if (flag) {
+            Toast.makeText(ChatArea.this, "still offline", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void loadMessages() {
-
+        mDialog.setMessage("Loading...");
+        mDialog.show();
         database.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -212,7 +180,7 @@ public class ChatArea extends AppCompatActivity {
                 System.out.println(custom.size());
                 System.out.println(custom.get(9).getText());
                 list.add(custom.get(0));
-
+                mDialog.dismiss();
                 adapter = new MessageAdapter(list, ChatArea.this);
                 recyclerView.setAdapter(adapter);
 
